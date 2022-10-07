@@ -2,10 +2,13 @@
     <main class="main">
         <div class="header">
             <div class="left">
-                <h4 class="subtitle">{{ $t('header.boilers-great-stuff') }}</h4>
-                <h1 class="title">{{ $t('header.project-name') }}
+                <div class="grid-wrap">
+                    <div class="left-grid">
+                        <h4 class="subtitle">{{ $t('header.boilers-great-stuff') }}</h4>
+                        <h1 class="title">{{ $t('header.project-name') }}</h1>
+                    </div>
                     <drip class="drip" />
-                </h1>
+                </div>
 
                 <div class="content">
                     <i18n-t keypath="header.content" tag="p">
@@ -13,8 +16,8 @@
                             <nuxt-link :to="{ name: 'styleguide' }">styleguide</nuxt-link>
                         </template>
                         <template v-slot:contributors>
-                            <a href="mailto:n.klumper@code14.nl">Niels Klumper, </a>
-                            <a href="mailto:j.tenden@code14.nl">Jordy ten Den</a>
+                            <a href="mailto:n.klumper@code14.nl">{{ $filters.upperCaseFirstLetter('Niels Klumper') }}, </a>
+                            <a href="mailto:j.tenden@code14.nl">{{ $filters.upperCaseFirstLetter('jordy ten Den') }}</a>
                         </template>
                     </i18n-t>
                 </div>
@@ -23,8 +26,6 @@
                     <span>{{ $t('view-nuxt-3') }}</span>
                     <ArrowRightSVG class="arrow-right-icon" />
                 </a>
-            </div>
-            <div class="right">
             </div>
         </div>
     </main>
@@ -54,6 +55,10 @@
             width                 : 100%;
             @include section-container;
 
+            @media($phone) {
+                grid-template-columns : 1fr;
+            }
+
             .drip {
                 height     : 6rem;
                 fill       : var(--color-primary-200);
@@ -65,13 +70,38 @@
             }
 
             .left {
-                .subtitle {
-                    color         : var(--color-primary-300);
-                    margin-bottom : 0;
+                .grid-wrap {
+                    display               : grid;
+                    grid-template-columns : 1fr 1fr;
+                    align-items           : center;
+
+                    @media($phone) {
+                        gap : .8rem;
+                    }
+
+                    .left-grid {
+                        .subtitle {
+                            color         : var(--color-primary-300);
+                            margin-bottom : 0;
+                        }
+
+                        .title {
+                            line-height : 1;
+                        }
+                    }
                 }
 
                 .content {
-                    margin : 2rem 0 3.2rem 0;
+                    margin    : 2rem 0 3.2rem 0;
+                    max-width : 60%;
+
+                    @media($tablet-portrait) {
+                        max-width : 80%;
+                    }
+
+                    @media($phone) {
+                        max-width : 100%;
+                    }
                 }
 
                 .view-nuxt-button {
