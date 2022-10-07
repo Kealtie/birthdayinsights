@@ -5,9 +5,7 @@
                 <span class="title">Styleguide</span>
                 <span class="subtitle">Design System</span>
             </div>
-            <img alt="logo"
-                 class="customer-logo"
-                 src="@/assets/images/logo.svg">
+            <company-logo class="customer-logo" />
         </header>
         <section>
             <div class="col">
@@ -241,18 +239,21 @@
 </template>
 
 <script>
+    import CompanyLogo from '~/assets/images/logo.svg';
+
     export default {
         name: 'Styleguide',
         layout: 'styleguide',
+        components: { CompanyLogo },
     };
 </script>
 
 <style lang="scss" scoped>
     .page-container {
-        background-color : white !important;
+        background-color : var(--color-black);
 
         header {
-            background-color : var(--color-white);
+            background-color : var(--color-black);
             border-bottom    : .2rem solid var(--color-primary-300);
             z-index          : index($elements, header);
             position         : sticky;
@@ -404,13 +405,14 @@
                         height        : 14rem;
 
                         &.black {
+                            border     : 1px solid rgba(255, 255, 255, 0.1);
                             background : var(--color-black);
                             color      : var(--color-white);
                         }
 
                         &.white {
-                            border     : 1px solid rgba(0, 0, 0, 0.1);
                             background : var(--color-white);
+                            color      : var(--color-black);
                         }
 
                         &.primary {
@@ -418,6 +420,7 @@
                         }
 
                         &.secondary {
+                            border     : 1px solid rgba(255, 255, 255, 0.1);
                             background : var(--color-secondary-300);
                             color      : var(--color-white);
                         }

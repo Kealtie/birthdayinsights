@@ -1,9 +1,11 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import svgLoader from 'vite-svg-loader';
 
 /**
  * Main configuration file for Nuxt.js
  * {@link https://v3.nuxtjs.org/api/configuration/nuxt.config}
  */
+// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     modules: [
         /**
@@ -12,17 +14,20 @@ export default defineNuxtConfig({
          */
         '@pinia/nuxt',
     ],
-    css: [
+    css    : [
         '~/assets/scss/main.scss',
     ],
 
     vite: {
-        css: {
+        css    : {
             preprocessorOptions: {
                 scss: {
                     additionalData: '@use "@/assets/scss/base/_index.scss" as *;',
                 },
             },
         },
+        plugins: [
+            svgLoader()
+        ]
     },
 })

@@ -30,6 +30,16 @@ body {
     }
 }
 
+a {
+    color           : var(--color-primary-200);
+    text-decoration : none;
+    transition      : all .2s ease-out;
+
+    &:hover {
+        color : var(--color-primary-100);
+    }
+}
+
 .btn {
     display         : inline-flex;
     align-items     : center;
