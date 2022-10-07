@@ -1,0 +1,90 @@
+/*
+    Settings file for the variables.
+    You may change every value of the variables, do NOT change the name.
+    Instructions and documentation: https://code14.slite.com/app/channels/V6ISR3LGpV/notes/WSm_PPWV72
+*/
+@use '../base/colors';
+
+// Desktop
+:root {
+    // Define colors from 'assets/scss/base/_colors.scss'
+    @each $color, $shade in colors.$colors {
+        @each $prop, $value in $shade {
+            --color-#{$color}-#{$prop}: #{$value};
+        }
+    }
+
+    --color-black           : #000000;
+    --color-white           : #FFFFFF;
+
+    // Fonts
+    --font-primary          : 'Inter', sans-serif;
+    --font-secondary        : 'Times New Roman', sans-serif;
+
+    // Typography
+    --h1-font-size          : 6.4rem;
+    --h1-font-weight        : 700;
+
+    --h2-font-size          : 5.6rem;
+    --h2-font-weight        : var(--h1-font-weight);
+
+    --h3-font-size          : 4rem;
+    --h3-font-weight        : var(--h1-font-weight);
+
+    --h4-font-size          : 3.2rem;
+    --h4-font-weight        : var(--h1-font-weight);
+
+    --h5-font-size          : 2.4rem;
+    --h5-font-weight        : var(--h1-font-weight);
+
+    --h6-font-size          : 2rem;
+    --h6-font-weight        : var(--h1-font-weight);
+
+    --p-font-size           : 1.6rem;
+    --p-font-weight         : 400;
+
+    // Body
+    --body-font-size        : var(--p-font-size);
+    --body-font-weight      : var(--p-font-weight);
+    --body-font-color       : var(--color-black);
+    --body-line-height      : 1.6;
+    --body-background-color : var(--color-white);
+
+    // Sections
+    --section-padding-x     : 8rem;
+    --section-padding-y     : 12rem;
+}
+
+// Tablet
+@media (max-width : 992px) {
+    :root {
+        // Typography
+        --h1-font-size      : 5.6rem;
+        --h2-font-size      : 4rem;
+        --h3-font-size      : 3.2rem;
+        --h4-font-size      : 2.4rem;
+        --h5-font-size      : 2rem;
+        --h6-font-size      : 1.6rem;
+
+        // Sections
+        --section-padding-x : 4rem;
+        --section-padding-y : 10.4rem;
+    }
+}
+
+// Phone
+@media (max-width : 576px) {
+    :root {
+        // Typography
+        --h1-font-size      : 4rem;
+        --h2-font-size      : 3.2rem;
+        --h3-font-size      : 2.4rem;
+        --h4-font-size      : 2rem;
+        --h5-font-size      : 2rem;
+        --h6-font-size      : 1.6rem;
+
+        // Sections
+        --section-padding-x : 2.4rem;
+        --section-padding-y : 5.6rem;
+    }
+}

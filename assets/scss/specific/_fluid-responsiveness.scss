@@ -1,0 +1,20 @@
+@use '../base/variables';
+
+html {
+    font-size : 10px;
+
+    // Desktop view - Based on 1920px design
+    @media (variables.$desktop) {
+        font-size : calc(0.833333333vw * 0.625);
+    }
+
+    // Tablet view - Based on 768 design
+    @media (variables.$tablet-portrait) {
+        font-size : calc(2.0833333333vw * 0.625);
+    }
+
+    // Mobile view - Based on 375px design
+    @media (variables.$phone) {
+        font-size : calc(4.2666666667vw * 0.625);
+    }
+}

@@ -12,4 +12,17 @@ export default defineNuxtConfig({
          */
         '@pinia/nuxt',
     ],
-});
+    css: [
+        '~/assets/scss/main.scss',
+    ],
+
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@use "@/assets/scss/base/_index.scss" as *;',
+                },
+            },
+        },
+    },
+})
