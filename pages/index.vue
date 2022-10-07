@@ -30,28 +30,38 @@
         </section>
         <section class="section">
             <div class="features">
-                <h5>Packages</h5>
-                <h2>Deze Boilerplate bevat</h2>
+                <h5>{{ $t('packages') }}</h5>
+                <h2>{{ $t('this-boilerplate-contains') }}</h2>
 
                 <ul class="feature-list">
-                    <li class="feature">
-                        <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a>
-                    </li>
+                    <a href="https://pinia.vuejs.org/" target="_blank">
+                        <li class="feature">
+                            Pinia
+                        </li>
+                    </a>
+                    <a href="https://vueuse.org/" target="_blank">
+                        <li class="feature">
+                            VueUse
+                            <span>x: {{ x }}, y: {{ y }}</span>
+                        </li>
+                    </a>
 
-                    <li class="feature">
-                        <a href="https://vueuse.org/" target="_blank">VueUse</a>
-                        <span>x: {{ x }}, y: {{ y }}</span>
-                    </li>
+                    <a href="https://axios.nuxtjs.org/" target="_blank">
+                        <li class="feature">
+                            Axios
+                        </li>
+                    </a>
+                    <a href="https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html" target="_blank">
+                        <li class="feature">
+                            vue/i18n
+                        </li>
+                    </a>
 
-                    <li class="feature">
-                        <a href="https://axios.nuxtjs.org/" target="_blank">Axios</a>
-                    </li>
-                    <li class="feature">
-                        <a href="https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html" target="_blank">vue/i18n</a>
-                    </li>
-                    <li class="feature">
-                        <a href="https://www.npmjs.com/package/vite-svg-loader" target="_blank">vite-svg-loader</a>
-                    </li>
+                    <a href="https://www.npmjs.com/package/vite-svg-loader" target="_blank">
+                        <li class="feature">
+                            vite-svg-loader
+                        </li>
+                    </a>
                 </ul>
             </div>
         </section>
@@ -59,8 +69,8 @@
 </template>
 
 <script>
-    import ArrowRightSVG from '~/assets/images/arrow-right.svg';
-    import Drip from '~/assets/images/drip.svg';
+    import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg';
+    import Drip from '~/assets/images/svgs/drip.svg';
     import { useMouse } from '@vueuse/core';
 
     export default {
@@ -119,7 +129,7 @@
 
                     .left-grid {
                         .subtitle {
-                            color         : var(--color-primary-300);
+                            color         : var(--color-primary-400);
                             margin-bottom : 0;
                         }
 
@@ -185,14 +195,14 @@
         position          : relative;
 
         &:nth-child(odd) {
-            background-color : var(--color-dark-300);
+            background-color : var(--color-dark-400);
         }
 
         .features {
             text-align : center;
 
             h5 {
-                color : var(--color-primary-300);
+                color : var(--color-primary-400);
             }
 
             .feature-list {
@@ -201,6 +211,10 @@
                 align-items   : center;
                 gap           : 1.6rem;
                 margin-top    : 2.4rem;
+
+                a {
+                    color : var(--color-white);
+                }
 
                 .feature {
                     display          : flex;
@@ -213,17 +227,13 @@
                     border-radius    : 1.6rem;
                     font-size        : 2rem;
                     cursor           : pointer;
-                    background-color : var(--color-primary-300);
+                    background-color : var(--color-primary-400);
                     padding          : 2.4rem;
                     transition       : all .175s cubic-bezier(0.6, 0.3, 0.65, 1.3);
 
                     &:hover {
                         transform        : scale(1.05);
                         background-color : var(--color-primary-200);
-                    }
-
-                    a {
-                        color : var(--color-white);
                     }
                 }
             }

@@ -239,7 +239,7 @@
 </template>
 
 <script>
-    import CompanyLogo from '~/assets/images/logo.svg';
+    import CompanyLogo from '~/assets/images/svgs/logo.svg';
 
     export default {
         name: 'Styleguide',
@@ -254,7 +254,7 @@
 
         header {
             background-color : var(--color-black);
-            border-bottom    : .2rem solid var(--color-primary-300);
+            border-bottom    : .2rem solid var(--color-primary-400);
             z-index          : index($elements, header);
             position         : sticky;
             top              : 0;
@@ -416,42 +416,42 @@
                         }
 
                         &.primary {
-                            background : var(--color-primary-300);
+                            background : var(--color-primary-400);
                         }
 
                         &.secondary {
                             border     : 1px solid rgba(255, 255, 255, 0.1);
-                            background : var(--color-secondary-300);
+                            background : var(--color-secondary-400);
                             color      : var(--color-white);
                         }
 
                         &.tertiary {
-                            background : var(--color-tertiary-300);
+                            background : var(--color-tertiary-400);
                         }
 
                         &.darker-blue {
-                            background : var(--color-dark-300);
+                            background : var(--color-dark-400);
                             color      : var(--color-white);
                         }
 
                         &.success {
-                            background : var(--color-success-300);
+                            background : var(--color-success-400);
                         }
 
                         &.danger {
-                            background : var(--color-danger-300);
+                            background : var(--color-danger-400);
                         }
 
                         &.warning {
-                            background : var(--color-warning-300);
+                            background : var(--color-warning-400);
                         }
 
                         &.light {
-                            background : var(--color-light-300);
+                            background : var(--color-light-400);
                         }
 
                         &.dark {
-                            background : var(--color-dark-300);
+                            background : var(--color-dark-400);
                             color      : var(--color-white);
                         }
                     }
