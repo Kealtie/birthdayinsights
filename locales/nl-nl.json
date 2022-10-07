@@ -1,0 +1,9 @@
+{
+    "header": {
+        "boilers-great-stuff": "Boilers, mooi spul!",
+        "project-name": "Nuxt 3 Boilerplate",
+        "content": "Boilers, mooi spul! Deze Boiler warmt zijn water op d.m.v. Nuxt 3. In de {styleguide} kan je de uitwerking van de _settings.scss file vinden. Bij vragen en-/of opmerkingen kan je contact opnemen met {contributors}."
+    },
+
+    "view-nuxt-3": "Bekijk Nuxt 3"
+}

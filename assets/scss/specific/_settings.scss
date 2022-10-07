@@ -14,6 +14,7 @@
         }
     }
 
+    // Standard 'black' & 'white' colors.
     --color-black           : #000000;
     --color-white           : #FFFFFF;
 
@@ -46,9 +47,9 @@
     // Body
     --body-font-size        : var(--p-font-size);
     --body-font-weight      : var(--p-font-weight);
-    --body-font-color       : var(--color-black);
+    --body-font-color       : var(--color-white);
     --body-line-height      : 1.6;
-    --body-background-color : var(--color-white);
+    --body-background-color : var(--color-black);
 
     // Sections
     --section-padding-x     : 8rem;
