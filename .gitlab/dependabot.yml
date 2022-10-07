@@ -16,6 +16,7 @@ updates:
       - "javascript"
     reviewers:
       - jtenden
+      - nklumper
     schedule:
       time: "23:00"
-      interval: "daily"
+      interval: "monthly"
