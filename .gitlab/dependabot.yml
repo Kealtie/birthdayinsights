@@ -1,0 +1,21 @@
+# Voor documentatie: https://code14.slite.com/app/channels/V6ISR3LGpV/notes/qwJEXBE3ca
+version: 2
+
+registries:
+  npm-vcs:
+    type: npm-registry
+    url: https://vcs.code14.nl/api/v4/packages/npm/
+    token: ${{SETTINGS__GITLAB_ACCESS_TOKEN}}
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    labels:
+      - "status::For review"
+      - "dependencies"
+      - "javascript"
+    reviewers:
+      - jtenden
+    schedule:
+      time: "23:00"
+      interval: "daily"

@@ -1,0 +1,6 @@
+{
+    "version": "*",
+    "reviewMode": "pipeline",
+    "defaultBranch": "origin\/development",
+    "exclude": []
+}
