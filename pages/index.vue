@@ -1,6 +1,6 @@
 <template>
     <main class="main">
-        <div class="header">
+        <section class="header section">
             <div class="left">
                 <div class="grid-wrap">
                     <div class="left-grid">
@@ -27,29 +27,67 @@
                     <ArrowRightSVG class="arrow-right-icon" />
                 </a>
             </div>
-        </div>
+        </section>
+        <section class="section">
+            <div class="features">
+                <h5>Packages</h5>
+                <h2>Deze Boilerplate bevat</h2>
+
+                <ul class="feature-list">
+                    <li class="feature">
+                        <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a>
+                    </li>
+
+                    <li class="feature">
+                        <a href="https://vueuse.org/" target="_blank">VueUse</a>
+                        <span>x: {{ x }}, y: {{ y }}</span>
+                    </li>
+
+                    <li class="feature">
+                        <a href="https://axios.nuxtjs.org/" target="_blank">Axios</a>
+                    </li>
+                    <li class="feature">
+                        <a href="https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html" target="_blank">vue/i18n</a>
+                    </li>
+                    <li class="feature">
+                        <a href="https://www.npmjs.com/package/vite-svg-loader" target="_blank">vite-svg-loader</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 </template>
 
 <script>
     import ArrowRightSVG from '~/assets/images/arrow-right.svg';
     import Drip from '~/assets/images/drip.svg';
+    import { useMouse } from '@vueuse/core';
 
     export default {
         components: { ArrowRightSVG, Drip },
+        setup() {
+            const { x, y } = useMouse();
+
+            return { x, y };
+        },
     };
 </script>
 
 <style lang="scss" scoped>
     .main {
-        display         : flex;
-        justify-content : center;
-        align-items     : center;
-        width           : 100%;
-        height          : 100%;
+        display          : flex;
+        flex-direction   : column;
+        justify-content  : center;
+        align-items      : center;
+        width            : 100%;
+        height           : 100%;
+        scroll-behavior  : smooth;
+        scroll-snap-type : y mandatory;
 
         .header {
             display               : grid;
+            align-items           : center;
+            justify-content       : center;
             grid-template-columns : 1fr 1fr;
             gap                   : 3.2rem;
             width                 : 100%;
@@ -133,6 +171,61 @@
                 max-height      : 100%;
                 overflow        : hidden;
 
+            }
+        }
+    }
+
+    .section {
+        min-height        : 100vh;
+        width             : 100%;
+        display           : flex;
+        justify-content   : center;
+        align-items       : center;
+        scroll-snap-align : start;
+        position          : relative;
+
+        &:nth-child(odd) {
+            background-color : var(--color-dark-300);
+        }
+
+        .features {
+            text-align : center;
+
+            h5 {
+                color : var(--color-primary-300);
+            }
+
+            .feature-list {
+                display       : grid;
+                grid-template : repeat(2, 1fr) / repeat(4, 1fr);
+                align-items   : center;
+                gap           : 1.6rem;
+                margin-top    : 2.4rem;
+
+                .feature {
+                    display          : flex;
+                    flex-direction   : column;
+                    justify-content  : center;
+                    align-items      : center;
+                    gap              : 2.4rem;
+                    width            : 20rem;
+                    height           : 20rem;
+                    border-radius    : 1.6rem;
+                    font-size        : 2rem;
+                    cursor           : pointer;
+                    background-color : var(--color-primary-300);
+                    padding          : 2.4rem;
+                    transition       : all .175s cubic-bezier(0.6, 0.3, 0.65, 1.3);
+
+                    &:hover {
+                        transform        : scale(1.05);
+                        background-color : var(--color-primary-200);
+                    }
+
+                    a {
+                        color : var(--color-white);
+                    }
+                }
             }
         }
     }
