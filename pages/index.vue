@@ -1,5 +1,5 @@
 <template>
-    <main class="main">
+    <main class="main container">
         <section class="header section">
             <div class="left">
                 <div class="grid-wrap">
