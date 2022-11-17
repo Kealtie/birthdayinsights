@@ -19,6 +19,12 @@ export default defineNuxtConfig({
         '~/assets/scss/main.scss',
     ],
 
+    runtimeConfig: {
+        public: {
+            apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+        },
+    },
+
     vite: {
         css    : {
             preprocessorOptions: {

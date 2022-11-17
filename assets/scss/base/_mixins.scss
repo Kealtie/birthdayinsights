@@ -1,7 +1,7 @@
 // Section Spacing
 @mixin section-padding-x {
-    padding-left  : var(--section-padding-x);
     padding-right : var(--section-padding-x);
+    padding-left  : var(--section-padding-x);
 }
 
 @mixin section-padding-y {
@@ -12,7 +12,7 @@
 @mixin section-container {
     @include section-padding-x;
     @include section-padding-y;
-    width        : 100%;
-    margin-left  : auto;
     margin-right : auto;
+    margin-left  : auto;
+    width        : 100%;
 }

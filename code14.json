@@ -1,6 +1,6 @@
 {
     "version": "*",
     "reviewMode": "pipeline",
-    "defaultBranch": "origin\/development",
+    "defaultBranch": "origin\/master",
     "exclude": []
 }

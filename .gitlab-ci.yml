@@ -1,0 +1,47 @@
+image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/node:16.17.1
+
+variables:
+  YARN_CACHE_FOLDER: .yarn
+
+.default:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths: [ node_modules/, .yarn ]
+    policy: pull
+
+yarn:
+  extends: .default
+  stage: build
+  interruptible: true
+  before_script:
+    - eval "$INSTALL_NPM_REGISTRY_CI"
+  script:
+    - yarn install
+    - cp .env.example .env
+  cache:
+    policy: pull-push
+  artifacts:
+    expire_in: 1 day
+    paths: [ node_modules/, .env ]
+
+build-tester:
+  extends: .default
+  stage: test
+  interruptible: true
+  dependencies: [ yarn ]
+  script:
+    - yarn build --fail-on-error
+
+qa-checker:
+  image: registery.code14.nl/code14/innovation/code14-cli:latest
+  stage: test
+  dependencies: [ yarn ]
+  interruptible: true
+  artifacts:
+    reports:
+      codequality: [ "qa-gitlab-report.json" ]
+  script:
+    - code14-cli qa --report --ci
+
+
+

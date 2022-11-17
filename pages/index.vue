@@ -86,9 +86,9 @@
 <style lang="scss" scoped>
     .main {
         display          : flex;
+        align-items      : center;
         flex-direction   : column;
         justify-content  : center;
-        align-items      : center;
         width            : 100%;
         height           : 100%;
         scroll-behavior  : smooth;
@@ -129,8 +129,8 @@
 
                     .left-grid {
                         .subtitle {
-                            color         : var(--color-primary-400);
                             margin-bottom : 0;
+                            color         : var(--color-primary-400);
                         }
 
                         .title {
@@ -162,37 +162,37 @@
                     }
 
                     .arrow-right-icon {
-                        transition  : all .175s cubic-bezier(0.4, 0, 0.2, 1.1);
-                        fill        : var(--color-white);
                         margin-left : 1.6rem;
                         width       : 1.6rem;
                         height      : 1.6rem;
+                        transition  : all .175s cubic-bezier(0.4, 0, 0.2, 1.1);
+                        fill        : var(--color-white);
                     }
                 }
             }
 
             .right {
                 display         : flex;
-                justify-content : flex-end;
                 align-items     : center;
-                width           : 100%;
-                height          : 100%;
-                max-width       : 100%;
-                max-height      : 100%;
+                justify-content : flex-end;
                 overflow        : hidden;
+                width           : 100%;
+                max-width       : 100%;
+                height          : 100%;
+                max-height      : 100%;
 
             }
         }
     }
 
     .section {
-        min-height        : 100vh;
-        width             : 100%;
-        display           : flex;
-        justify-content   : center;
-        align-items       : center;
-        scroll-snap-align : start;
         position          : relative;
+        display           : flex;
+        align-items       : center;
+        justify-content   : center;
+        width             : 100%;
+        min-height        : 100vh;
+        scroll-snap-align : start;
 
         &:nth-child(odd) {
             background-color : var(--color-dark-400);
@@ -218,18 +218,18 @@
 
                 .feature {
                     display          : flex;
+                    align-items      : center;
                     flex-direction   : column;
                     justify-content  : center;
-                    align-items      : center;
-                    gap              : 2.4rem;
+                    border-radius    : 1.6rem;
                     width            : 20rem;
                     height           : 20rem;
-                    border-radius    : 1.6rem;
-                    font-size        : 2rem;
-                    cursor           : pointer;
-                    background-color : var(--color-primary-400);
                     padding          : 2.4rem;
+                    background-color : var(--color-primary-400);
+                    cursor           : pointer;
+                    font-size        : 2rem;
                     transition       : all .175s cubic-bezier(0.6, 0.3, 0.65, 1.3);
+                    gap              : 2.4rem;
 
                     &:hover {
                         transform        : scale(1.05);
