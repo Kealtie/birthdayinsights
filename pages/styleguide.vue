@@ -253,18 +253,18 @@
         background-color : var(--color-black);
 
         header {
-            background-color : var(--color-black);
-            border-bottom    : .2rem solid var(--color-primary-400);
-            z-index          : index($elements, header);
             position         : sticky;
+            z-index          : index($elements, header);
             top              : 0;
             display          : flex;
             align-items      : center;
             justify-content  : space-between;
             margin           : 0 0 16rem;
+            border-bottom    : .2rem solid var(--color-primary-400);
             border-bottom    : 1px solid rgba(0, 0, 0, 0.1);
             width            : 100%;
             padding          : 4.8rem 16rem;
+            background-color : var(--color-black);
 
             @media ($tablet-portrait) {
                 margin  : 0 0 8rem;
