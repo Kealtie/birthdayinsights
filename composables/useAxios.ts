@@ -1,7 +1,10 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
+import { useRuntimeConfig } from "#app";
 
-export const useAxios = () => {
+export const useAxios = (): AxiosInstance => {
+    const runtimeConfig = useRuntimeConfig();
+
     return axios.create({
-        baseURL: 'https://demo-api.dev.test/',
-    })
+        baseURL: runtimeConfig.public.apiBase,
+    });
 }
