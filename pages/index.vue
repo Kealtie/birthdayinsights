@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="content">
-                    <i18n-t keypath="header.content" tag="p">
+                    <i18n-t keypath="header.content" tag="p" scope="global">
                         <template v-slot:styleguide>
                             <nuxt-link :to="{ name: 'styleguide' }">styleguide</nuxt-link>
                         </template>
@@ -65,20 +65,37 @@
                 </ul>
             </div>
         </section>
+        <section class="section">
+            <div class="data-fetching">
+                <div class="left">
+                    <a class="btn primary view-nuxt-button" @click.prevent="refreshUser">
+                        {{ $t('button.refresh') }}
+                    </a>
+                </div>
+                <div class="right">
+                    <p v-if="userPending">{{ $t('loading') }}</p>
+                    <pre v-else>{{ user }}</pre>
+                </div>
+            </div>
+        </section>
     </main>
 </template>
 
-<script>
-    import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg';
-    import Drip from '~/assets/images/svgs/drip.svg';
+<script lang="ts">
+    import { useAsyncData } from 'nuxt/app';
+    import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg?component';
+    import Drip from '~/assets/images/svgs/drip.svg?component';
     import { useMouse } from '@vueuse/core';
+    import { useUserStore } from '~/stores/user';
 
     export default {
         components: { ArrowRightSVG, Drip },
         setup() {
             const { x, y } = useMouse();
 
-            return { x, y };
+            const { data: user, refresh: refreshUser, pending: userPending } = useAsyncData(async () => await useUserStore().show());
+
+            return { x, y, user, refreshUser, userPending };
         },
     };
 </script>
@@ -235,6 +252,28 @@
                         transform        : scale(1.05);
                         background-color : var(--color-primary-200);
                     }
+                }
+            }
+        }
+
+        .data-fetching {
+            display               : grid;
+            width                 : min(100%, 99.2rem);
+            gap                   : 2.4rem;
+            grid-template-columns : repeat(auto-fit, minmax(20rem, 1fr));
+
+            .left, .right {
+                display     : grid;
+                place-items : center;
+            }
+
+            pre {
+                border-radius    : 1.6rem;
+                padding          : 2.4rem;
+                background-color : var(--color-grey-600);
+
+                &::selection {
+                    background-color : var(--color-grey-500);
                 }
             }
         }
