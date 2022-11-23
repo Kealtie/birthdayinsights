@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent, onMounted, Ref } from 'vue';
+    import { defineComponent, Ref } from 'vue';
     import { useI18n } from 'vue-i18n';
     import { useWindowScroll } from '@vueuse/core';
     import { computed } from "@vue/reactivity";
@@ -25,7 +25,6 @@
             const { y } = useWindowScroll();
 
             const isScrolled: Ref = computed(() => y.value > 0);
-
 
             return {
                 t,
