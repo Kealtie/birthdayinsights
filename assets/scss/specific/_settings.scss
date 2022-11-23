@@ -9,6 +9,7 @@
 :root {
     // Define colors from 'assets/scss/base/_colors.scss'
     @each $color, $shade in colors.$colors {
+        --color-#{$color}: #{map-get($shade, 400)};
         @each $prop, $value in $shade {
             --color-#{$color}-#{$prop}: #{$value};
         }
