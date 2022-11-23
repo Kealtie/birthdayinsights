@@ -28,11 +28,7 @@
             const handleScroll = () => {
                 const nav = document.querySelector('nav');
 
-                if (y.value > 0) {
-                    nav?.classList.add('scrolled');
-                } else {
-                    nav?.classList.remove('scrolled');
-                }
+                nav?.classList.toggle('scrolled', y.value > 0);
             };
 
             onMounted(() => {
@@ -40,7 +36,6 @@
             });
 
             return {
-                handleScroll,
                 t,
             };
         },
