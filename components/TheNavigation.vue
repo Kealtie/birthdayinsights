@@ -15,18 +15,20 @@
 <script lang="ts">
     import { defineComponent, onMounted } from 'vue';
     import { useI18n } from 'vue-i18n';
+    import { useWindowScroll } from '@vueuse/core';
 
     export default defineComponent({
         name: 'TheNavigation',
         setup() {
             const { t } = useI18n();
+            const { y } = useWindowScroll();
 
             // When we scrolled down from the top add a class to the nav element
             // to make it sticky.
             const handleScroll = () => {
                 const nav = document.querySelector('nav');
                 if (nav) {
-                    if (window.scrollY > 0) {
+                    if (y.value > 0) {
                         nav.classList.add('scrolled');
                     } else {
                         nav.classList.remove('scrolled');
