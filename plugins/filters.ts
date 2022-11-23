@@ -10,7 +10,6 @@ export default defineNuxtPlugin(nuxtApp => {
                  * @param currency
                  */
                 priceFormat(value: string, currency: string = "EUR") {
-                    console.log(nuxtApp);
                     // @ts-ignore
                     return value.toLocaleString("nl-NL", {
                         style: "currency",

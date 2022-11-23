@@ -90,6 +90,7 @@
     import { defineComponent } from "vue";
 
     export default defineComponent({
+        layout    : 'default',
         components: { ArrowRightSVG, Drip },
         setup() {
             const { x, y } = useMouse();
