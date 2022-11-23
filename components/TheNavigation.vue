@@ -11,25 +11,18 @@
         </div>
     </nav>
 </template>
-
 <script lang="ts">
-    import { defineComponent, Ref } from 'vue';
-    import { useI18n } from 'vue-i18n';
+    import { defineComponent, computed } from '#imports';
     import { useWindowScroll } from '@vueuse/core';
-    import { computed } from "@vue/reactivity";
 
     export default defineComponent({
         name: 'TheNavigation',
         setup() {
-            const { t } = useI18n();
             const { y } = useWindowScroll();
 
-            const isScrolled: Ref = computed(() => y.value > 0);
+            const isScrolled = computed<boolean>(() => y.value > 0);
 
-            return {
-                t,
-                isScrolled
-            };
+            return { isScrolled };
         },
     });
 </script>
