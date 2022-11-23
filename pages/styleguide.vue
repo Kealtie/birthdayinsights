@@ -251,11 +251,12 @@
 <style lang="scss" scoped>
     .page-container {
         background-color : var(--color-black);
+        @include section-container;
 
         header {
             position         : sticky;
             z-index          : index($elements, header);
-            top              : 0;
+            top              : 4.8rem;
             display          : flex;
             align-items      : center;
             justify-content  : space-between;
@@ -263,7 +264,6 @@
             border-bottom    : .2rem solid var(--color-primary-400);
             border-bottom    : 1px solid rgba(0, 0, 0, 0.1);
             width            : 100%;
-            padding          : 4.8rem 16rem;
             background-color : var(--color-black);
 
             @media ($tablet-portrait) {
@@ -313,27 +313,17 @@
         section {
             display               : grid;
             width                 : 100%;
-            padding               : 0 16rem 16rem;
             grid-template-columns : 2fr 4fr;
             grid-gap              : 15.2rem;
 
             @media($tablet-portrait) {
-                padding               : 0 6.4rem 6.4rem;
                 grid-template-columns : 100%;
                 grid-gap              : 4rem;
             }
 
             @media ($phone) {
-                padding               : 0 2.4rem 2.4rem;
                 grid-template-columns : 100%;
                 grid-gap              : 2.4rem;
-            }
-
-            &:last-child {
-                padding-bottom : 16rem;
-                @media($tablet-portrait) {
-                    padding-bottom : 6.4rem;
-                }
             }
 
             .col {

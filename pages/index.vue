@@ -82,13 +82,14 @@
 </template>
 
 <script lang="ts">
-    import { useAsyncData } from 'nuxt/app';
+    import { defineComponent, useAsyncData } from '#imports';
     import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg?component';
     import Drip from '~/assets/images/svgs/drip.svg?component';
     import { useMouse } from '@vueuse/core';
     import { useUserStore } from '~/stores/user';
 
-    export default {
+    export default defineComponent({
+        layout    : 'default',
         components: { ArrowRightSVG, Drip },
         setup() {
             const { x, y } = useMouse();
@@ -97,7 +98,7 @@
 
             return { x, y, user, refreshUser, userPending };
         },
-    };
+    });
 </script>
 
 <style lang="scss" scoped>
@@ -126,7 +127,7 @@
 
             .drip {
                 height     : 6rem;
-                fill       : var(--color-primary-200);
+                fill       : var(--color-primary-500);
                 transition : all .3s cubic-bezier(.25, .8, .25, 1.2);
 
                 &:hover {
