@@ -27,12 +27,11 @@
             // to make it sticky.
             const handleScroll = () => {
                 const nav = document.querySelector('nav');
-                if (nav) {
-                    if (y.value > 0) {
-                        nav.classList.add('scrolled');
-                    } else {
-                        nav.classList.remove('scrolled');
-                    }
+
+                if (y.value > 0) {
+                    nav?.classList.add('scrolled');
+                } else {
+                    nav?.classList.remove('scrolled');
                 }
             };
 
