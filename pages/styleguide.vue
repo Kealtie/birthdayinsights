@@ -251,12 +251,12 @@
 <style lang="scss" scoped>
     .page-container {
         background-color : var(--color-black);
-        @include section-padding-x;
+        @include section-container;
 
         header {
             position         : sticky;
             z-index          : index($elements, header);
-            top              : 5rem;
+            top              : 4.8rem;
             display          : flex;
             align-items      : center;
             justify-content  : space-between;
