@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from 'vue';
-    import TheNavigation from '~/components/TheNavigation.vue';
+    import { defineComponent } from '#imports';
+    import { TheNavigation } from '#components';
 
     export default defineComponent({
         name      : 'DefaultLayout',
