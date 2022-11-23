@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav :class="{'scrolled': isScrolled}">
         <div class="container">
             <div class="left">
                 Boilers, mooi spul
@@ -13,9 +13,10 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent, onMounted } from 'vue';
+    import { defineComponent, onMounted, Ref } from 'vue';
     import { useI18n } from 'vue-i18n';
     import { useWindowScroll } from '@vueuse/core';
+    import { computed } from "@vue/reactivity";
 
     export default defineComponent({
         name: 'TheNavigation',
@@ -23,20 +24,12 @@
             const { t } = useI18n();
             const { y } = useWindowScroll();
 
-            // When we scrolled down from the top add a class to the nav element
-            // to make it sticky.
-            const handleScroll = () => {
-                const nav = document.querySelector('nav');
+            const isScrolled: Ref = computed(() => y.value > 0);
 
-                nav?.classList.toggle('scrolled', y.value > 0);
-            };
-
-            onMounted(() => {
-                window.addEventListener('scroll', handleScroll);
-            });
 
             return {
                 t,
+                isScrolled
             };
         },
     });
