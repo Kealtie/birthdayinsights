@@ -4,6 +4,10 @@
             <div class="left">
                 Boilers, mooi spul
             </div>
+            <div class="right">
+                <nuxt-link :to="{ name: 'index' }" class="link">Home</nuxt-link>
+                <nuxt-link :to="{ name: 'styleguide' }" class="link">Styleguide</nuxt-link>
+            </div>
         </div>
     </nav>
 </template>
@@ -16,7 +20,6 @@
         name: 'TheNavigation',
         setup() {
             const { t } = useI18n();
-
 
             // When we scrolled down from the top add a class to the nav element
             // to make it sticky.
@@ -45,8 +48,10 @@
 
 <style lang="scss" scoped>
     nav {
+        @include section-padding-x;
+        padding-top      : 1.6rem;
+        padding-bottom   : 1.6rem;
         background-color : var(--color-primary);
-        padding          : 1rem 3.2rem;
         position         : relative;
         transition       : all .3s cubic-bezier(.25, .8, .25, 1.2);
 
@@ -57,6 +62,16 @@
             left             : 0;
             right            : 0;
             z-index          : 100;
+
+            .container {
+                .right {
+                    .link {
+                        &:hover {
+                            color : var(--color-primary);
+                        }
+                    }
+                }
+            }
         }
 
         .container {
@@ -69,6 +84,23 @@
             .left {
                 color       : var(--color-white);
                 font-weight : 700;
+            }
+
+            .right {
+                display         : flex;
+                align-items     : center;
+                justify-content : flex-end;
+                gap             : 1.6rem;
+
+                .link {
+                    color       : var(--color-white);
+                    font-weight : 400;
+                    transition  : all .3s cubic-bezier(.25, .8, .25, 1.2);
+
+                    &:hover {
+                        color : var(--color-dark);
+                    }
+                }
             }
         }
     }
