@@ -82,12 +82,11 @@
 </template>
 
 <script lang="ts">
-    import { useAsyncData } from 'nuxt/app';
+    import { defineComponent, useAsyncData } from '#imports';
     import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg?component';
     import Drip from '~/assets/images/svgs/drip.svg?component';
     import { useMouse } from '@vueuse/core';
     import { useUserStore } from '~/stores/user';
-    import { defineComponent } from "vue";
 
     export default defineComponent({
         layout    : 'default',
