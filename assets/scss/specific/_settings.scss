@@ -4,6 +4,7 @@
     Instructions and documentation: https://code14.slite.com/app/channels/V6ISR3LGpV/notes/WSm_PPWV72
 */
 @use '../base/colors';
+@use '../base/variables' as *;
 
 // Desktop
 :root {
@@ -58,7 +59,7 @@
 }
 
 // Tablet
-@media (max-width : 992px) {
+@media ($tablet-portrait) {
     :root {
         // Typography
         --h1-font-size      : 5.6rem;
@@ -75,7 +76,7 @@
 }
 
 // Phone
-@media (max-width : 576px) {
+@media ($phone) {
     :root {
         // Typography
         --h1-font-size      : 4rem;
