@@ -13,6 +13,12 @@ export default defineNuxtConfig({
          * {@link https://pinia.vuejs.org/introduction.html }
          */
         '@pinia/nuxt',
+
+        /**
+         * Installs the Nuxt.js module for i18n.
+         * {@link https://v8.i18n.nuxtjs.org }
+         */
+        '@nuxtjs/i18n',
     ],
 
     css: [
@@ -22,6 +28,25 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+            baseUrl: '', // can be overridden by NUXT_PUBLIC_BASE_URL environment variable
+        },
+    },
+
+    i18n: {
+        lazy                 : true,
+        dynamicRouteParams   : true,
+        baseUrl              : process.env.NUXT_BASE_URL,
+        defaultLocale        : 'nl',
+        langDir              : 'locales',
+        locales              : [
+            { code: 'nl', iso: 'nl-NL', file: 'nl.json' },
+            { code: 'en', iso: 'en-GB', file: 'en.json', isCatchallLocale: true },
+            { code: 'de', iso: 'de-DE', file: 'de.json' },
+        ],
+        detectBrowserLanguage: {
+            useCookie : true,
+            cookieKey : 'i18n_redirected',
+            redirectOn: 'root',
         },
     },
 

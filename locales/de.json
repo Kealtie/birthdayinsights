@@ -1,0 +1,31 @@
+{
+    "layouts": {
+        "title": "{title}"
+    },
+    "pages": {
+        "title": {
+            "index": "Kessel, tolle Sache!",
+            "styleguide": "Gestaltungsrichtlinie",
+            "TBD": "Ausgewählt sein"
+        }
+    },
+    "locale": {
+        "en": "Englisch",
+        "de": "Deutsch",
+        "nl": "Niederländisch"
+    },
+    "header": {
+        "welcome": "Dies ist eine Übersetzung von i18n",
+        "boilers-great-stuff": "Kessel, tolle Sache!",
+        "project-name": "Nuxt 3 Boilerplate",
+        "content": "Kessel, schönes Zeug! Dieser Boiler erwärmt sein Wasser mit Nuxt 3. Im {styleguide} finden Sie die Details der Datei _settings.scss. Bei Fragen und/oder Kommentaren wenden Sie sich bitte an {contributors}."
+    },
+    "button": {
+        "refresh": "Aktualisierung"
+    },
+    "loading": "Wird geladen...",
+    "view-nuxt-3": "Siehe Nuxt 3",
+    "this-boilerplate-contains": "Diese Kessel enthält",
+    "packages": "Packages",
+    "read-more": "Mehr lesen"
+}
