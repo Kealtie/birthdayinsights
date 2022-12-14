@@ -225,10 +225,10 @@
                         Normal buttons
                     </div>
                     <div class="buttons">
-                        <nuxt-link class="btn primary" to="\">
+                        <nuxt-link class="btn primary" :to="localeRoute({name:'index'})">
                             Primary
                         </nuxt-link>
-                        <nuxt-link class="btn secondary" to="\">
+                        <nuxt-link class="btn secondary" :to="localeRoute({name: 'index'})">
                             Secondary
                         </nuxt-link>
                     </div>
@@ -238,14 +238,21 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
+    import { defineI18nRoute, useLocaleHead, useI18n } from "#imports";
     import CompanyLogo from '~/assets/images/svgs/logo.svg';
 
-    export default {
-        name: 'Styleguide',
-        layout: 'styleguide',
-        components: { CompanyLogo },
-    };
+    definePageMeta({
+        title: 'pages.title.styleguide',
+    });
+
+    defineI18nRoute({
+        paths: {
+            nl: '/stijlgids',
+            de: '/gestaltungsrichtlinie',
+            en: '/styleguide',
+        }
+    })
 </script>
 
 <style lang="scss" scoped>

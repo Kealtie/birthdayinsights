@@ -1,12 +1,13 @@
 <template>
     <nav :class="{'scrolled': isScrolled}">
         <div class="container">
-            <div class="left">
-                Boilers, mooi spul
-            </div>
+            <nuxt-link class="left" :to="localeRoute({ name: 'index' })">
+                {{ $t('header.boilers-great-stuff')}}
+            </nuxt-link>
             <div class="right">
-                <nuxt-link :to="{ name: 'index' }" class="link">Home</nuxt-link>
-                <nuxt-link :to="{ name: 'styleguide' }" class="link">Styleguide</nuxt-link>
+                <nuxt-link :to="localeRoute({ name: 'index' })" class="link">Home</nuxt-link>
+                <nuxt-link :to="localeRoute({ name: 'styleguide' })" class="link">Styleguide</nuxt-link>
+                <language-switcher />
             </div>
         </div>
     </nav>
@@ -30,19 +31,19 @@
 <style lang="scss" scoped>
     nav {
         @include section-padding-x;
+        position         : relative;
         padding-top      : 1.6rem;
         padding-bottom   : 1.6rem;
         background-color : var(--color-primary);
-        position         : relative;
         transition       : all .3s cubic-bezier(.25, .8, .25, 1.2);
 
         &.scrolled {
-            background-color : var(--color-dark);
             position         : sticky;
+            z-index          : 100;
             top              : 0;
             left             : 0;
             right            : 0;
-            z-index          : 100;
+            background-color : var(--color-dark);
 
             .container {
                 .right {
@@ -56,15 +57,15 @@
         }
 
         .container {
-            max-width       : 1920px;
-            margin          : 0 auto;
             display         : flex;
-            justify-content : space-between;
             align-items     : center;
+            justify-content : space-between;
+            margin          : 0 auto;
+            max-width       : 1920px;
 
             .left {
-                color       : var(--color-white);
                 font-weight : 700;
+                color       : var(--color-white);
             }
 
             .right {
@@ -74,8 +75,8 @@
                 gap             : 1.6rem;
 
                 .link {
-                    color       : var(--color-white);
                     font-weight : 400;
+                    color       : var(--color-white);
                     transition  : all .3s cubic-bezier(.25, .8, .25, 1.2);
 
                     &:hover {

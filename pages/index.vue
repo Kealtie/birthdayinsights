@@ -13,19 +13,19 @@
                 <div class="content">
                     <i18n-t keypath="header.content" tag="p" scope="global">
                         <template v-slot:styleguide>
-                            <nuxt-link :to="{ name: 'styleguide' }">styleguide</nuxt-link>
+                            <nuxt-link :to="localeRoute({ name: 'styleguide' })">styleguide</nuxt-link>
                         </template>
                         <template v-slot:contributors>
-                            <a href="mailto:n.klumper@code14.nl">{{ $filters.upperCaseFirstLetter('Niels Klumper') }}, </a>
-                            <a href="mailto:j.tenden@code14.nl">{{ $filters.upperCaseFirstLetter('jordy ten Den') }}</a>
+                            <nuxt-link to="mailto:n.klumper@code14.nl">{{ $filters.upperCaseFirstLetter('Niels Klumper') }},</nuxt-link>
+                            <nuxt-link to="mailto:j.tenden@code14.nl">{{ $filters.upperCaseFirstLetter('jordy ten Den') }}</nuxt-link>
                         </template>
                     </i18n-t>
                 </div>
 
-                <a href="https://v3.nuxtjs.org/" target="_blank" class="btn primary view-nuxt-button">
+                <nuxt-link to="https://v3.nuxtjs.org/" target="_blank" class="btn primary view-nuxt-button">
                     <span>{{ $t('view-nuxt-3') }}</span>
                     <ArrowRightSVG class="arrow-right-icon" />
-                </a>
+                </nuxt-link>
             </div>
         </section>
         <section class="section">
@@ -34,43 +34,44 @@
                 <h2>{{ $t('this-boilerplate-contains') }}</h2>
 
                 <ul class="feature-list">
-                    <a href="https://pinia.vuejs.org/" target="_blank">
+                    <nuxt-link to="https://pinia.vuejs.org/" target="_blank">
                         <li class="feature">
                             Pinia
                         </li>
-                    </a>
-                    <a href="https://vueuse.org/" target="_blank">
+                    </nuxt-link>
+                    <nuxt-link to="https://vueuse.org/" target="_blank">
                         <li class="feature">
                             VueUse
                             <span>x: {{ x }}, y: {{ y }}</span>
                         </li>
-                    </a>
+                    </nuxt-link>
 
-                    <a href="https://axios.nuxtjs.org/" target="_blank">
+                    <nuxt-link to="https://axios.nuxtjs.org/" target="_blank">
                         <li class="feature">
                             Axios
                         </li>
-                    </a>
-                    <a href="https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html" target="_blank">
+                    </nuxt-link>
+                    <nuxt-link to="https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html" target="_blank">
                         <li class="feature">
                             vue/i18n
                         </li>
-                    </a>
+                    </nuxt-link>
 
-                    <a href="https://www.npmjs.com/package/vite-svg-loader" target="_blank">
+                    <nuxt-link to="https://www.npmjs.com/package/vite-svg-loader" target="_blank">
                         <li class="feature">
                             vite-svg-loader
                         </li>
-                    </a>
+                    </nuxt-link>
+
                 </ul>
             </div>
         </section>
         <section class="section">
             <div class="data-fetching">
                 <div class="left">
-                    <a class="btn primary view-nuxt-button" @click.prevent="refreshUser">
+                    <nuxt-link class="btn primary view-nuxt-button" @click.prevent="refreshUser">
                         {{ $t('button.refresh') }}
-                    </a>
+                    </nuxt-link>
                 </div>
                 <div class="right">
                     <p v-if="userPending">{{ $t('loading') }}</p>
@@ -81,24 +82,20 @@
     </main>
 </template>
 
-<script lang="ts">
-    import { defineComponent, useAsyncData } from '#imports';
-    import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg?component';
-    import Drip from '~/assets/images/svgs/drip.svg?component';
+<script lang="ts" setup>
+    import { useAsyncData, definePageMeta } from '#imports';
     import { useMouse } from '@vueuse/core';
     import { useUserStore } from '~/stores/user';
+    import ArrowRightSVG from '~/assets/images/svgs/arrow-right.svg?component';
+    import Drip from '~/assets/images/svgs/drip.svg?component';
 
-    export default defineComponent({
-        layout    : 'default',
-        components: { ArrowRightSVG, Drip },
-        setup() {
-            const { x, y } = useMouse();
-
-            const { data: user, refresh: refreshUser, pending: userPending } = useAsyncData(async () => await useUserStore().show());
-
-            return { x, y, user, refreshUser, userPending };
-        },
+    definePageMeta({
+        title: 'pages.title.index',
     });
+
+    const { x, y } = useMouse();
+
+    const { data: user, refresh: refreshUser, pending: userPending } = useAsyncData(async () => await useUserStore().show());
 </script>
 
 <style lang="scss" scoped>

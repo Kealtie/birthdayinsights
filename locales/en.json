@@ -1,0 +1,31 @@
+{
+    "layouts": {
+        "title": "{title}"
+    },
+    "pages": {
+        "title": {
+            "index": "Boilers, great stuff!",
+            "styleguide": "Styleguide",
+            "TBD": "To be decided"
+        }
+    },
+    "locale": {
+        "en": "English",
+        "de": "German",
+        "nl": "Dutch"
+    },
+    "header": {
+        "welcome": "This is a translation from i18n.",
+        "boilers-great-stuff": "Boilers, great stuff!",
+        "project-name": "Nuxt 3 Boilerplate",
+        "content": "Boilers, nice stuff! This Boiler heats its water using Nuxt 3. In the {styleguide} you can find the details of the _settings.scss file. If you have any questions and/or comments, please contact {contributors}."
+    },
+    "button": {
+        "refresh": "Refresh"
+    },
+    "loading": "Loading...",
+    "view-nuxt-3": "View Nuxt 3",
+    "this-boilerplate-contains": "This Boilerplate contains",
+    "packages": "Packages",
+    "read-more": "Read more"
+}
