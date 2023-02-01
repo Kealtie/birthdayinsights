@@ -12,3 +12,9 @@ Een monteur moet kunnen inloggen via de Monteur app. Die ziet vervolgens zijn of
 # Taken
 - [ ] Database tabel maken met Users
 - [ ] Endpoint maken voor login
+
+# Testen
+- [ ] Deze oplossing heeft impact op andere functionaliteiten en deze dit werkt nog naar behoren.
+- [ ] De oplossing werkt op Desktop, Tablet én Mobiel.
+- [ ] De oplossing werkt op de laatste 2 versies van Chrome, Firefox & Safari.
+- [ ] De oplossing voldoet aan de codestyle van CODE14.
