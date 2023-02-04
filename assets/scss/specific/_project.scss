@@ -14,6 +14,25 @@
     outline : none;
 }
 
+input {
+    height        : 4.8rem;
+    width         : 40rem;
+    padding       : 0 1.6rem;
+    border-radius : .8rem;
+    background    : rgba(255, 255, 255, .2);
+    color         : var(--color-white);
+    border        : .1rem solid transparent;
+    transition    : all .2s ease-out;
+
+    &::-webkit-calendar-picker-indicator {
+        filter : invert(1);
+    }
+
+    &.error {
+        border : .1rem solid var(--color-danger);
+    }
+}
+
 body {
     margin                  : 0;
     width                   : 100%;
@@ -79,3 +98,31 @@ a {
         }
     }
 }
+
+.scale-y-enter-from,
+.scale-y-leave-to {
+    opacity   : 0;
+    transform : translateY(-.8rem);
+}
+
+.scale-y-enter-active,
+.scale-y-leave-active {
+    transform-origin : top;
+    transition       : all .3s cubic-bezier(0.4, 0, 0.2, 1.1);
+}
+
+.fade-in-up-enter-active,
+.fade-in-up-leave-active {
+    transition : all .2s ease-out;
+}
+
+.fade-in-up-enter-from {
+    opacity   : 0;
+    transform : translateY(-2.4rem);
+}
+
+.fade-in-up-leave-to {
+    opacity   : 0;
+    transform : translateY(2.4rem);
+}
+
