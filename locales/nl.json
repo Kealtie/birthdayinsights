@@ -5,10 +5,14 @@
     "date-of-birth": "Geboortedatum",
     "birthday-facts": {
         "your-age-is": "Je bent momenteel {age} jaar oud",
-        "your-next-birthday-is": "Je volgende verjaardag is op {date}",
-        "your-birthday-is-in": "Je verjaardag is over {weeks} weken, {days} dagen en {hours} uur"
+        "your-next-birthday-is": "Je volgende verjaardag is op een {date}",
+        "your-birthday-is-in": "Je verjaardag is over {formattedString}"
     },
+    "and": "en",
     "weeks": "weken",
     "days": "dagen",
-    "hours": "uren"
+    "hours": "uur",
+    "week": "week",
+    "day": "dag",
+    "hour": "uur"
 }

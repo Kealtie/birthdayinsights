@@ -24,6 +24,10 @@ input {
     border        : .1rem solid transparent;
     transition    : all .2s ease-out;
 
+    @media($phone) {
+        width : 100%;
+    }
+
     &::-webkit-calendar-picker-indicator {
         filter : invert(1);
     }

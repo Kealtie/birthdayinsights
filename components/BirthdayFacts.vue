@@ -6,8 +6,11 @@
         <transition name="scale-y" mode="out-in">
             <ul class="facts-list" v-if="birthdayValid">
                 <li class="fact">{{ $t('birthday-facts.your-age-is', { age: birthdayInformation?.age }) }}</li>
-                <li class="fact">{{ $t('birthday-facts.your-next-birthday-is', { date: birthdayInformation?.nextBirthday.format('DD MMMM YYYY') }) }}</li>
-                <li class="fact">{{ $t('birthday-facts.your-birthday-is-in', { weeks: birthdayInformation?.weeks, days: birthdayInformation?.days, hours: birthdayInformation?.hours }) }}</li>
+                <li class="fact">{{ $t('birthday-facts.your-next-birthday-is', { date: birthdayInformation?.nextBirthday.format('dddd, DD MMMM YYYY') }) }}</li>
+                <li class="fact">{{
+                        $t('birthday-facts.your-birthday-is-in', { formattedString: getFormattedWeeksDaysHoursString(birthdayInformation?.weeks, birthdayInformation?.days, birthdayInformation?.hours) })
+                                 }}
+                </li>
             </ul>
         </transition>
     </div>
@@ -16,7 +19,7 @@
 <script lang="ts" setup>
     import { useVuelidate } from '@vuelidate/core'
     import { required } from "@vuelidate/validators";
-    import { fetchDateInformation, getNextBirthDay } from "~/composables/useBirthdayFacts";
+    import { fetchDateInformation, getFormattedWeeksDaysHoursString } from "~/composables/useBirthdayFacts";
     import dayjs from "dayjs";
     import { useUserStore } from "~/stores/user";
 

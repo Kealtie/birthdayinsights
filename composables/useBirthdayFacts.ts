@@ -1,6 +1,7 @@
 import { useUserStore } from "~/stores/user";
 import { BirthdayInformation } from "~/stores/user/state";
 import dayjs from "dayjs";
+import { useI18n } from "vue-i18n";
 
 const userStore = useUserStore();
 
@@ -43,4 +44,21 @@ export const fetchDateInformation = (date: Date) => {
     }
 
     userStore.setBirthdayInformation(birthdayInformation);
+}
+
+/**
+ * Returns a formatted string of the birthdayInformation
+ * @example 3 weeks, 4 days and 5 hours. (translated)
+ * @param weeks
+ * @param days
+ * @param hours
+ */
+export const getFormattedWeeksDaysHoursString = (weeks: number, days: number, hours: number): string => {
+    const i18n = useI18n();
+
+    const weeksString = weeks > 1 ? `${weeks} ${i18n.t('weeks')}, ` : weeks === 1 ? `${weeks} ${i18n.t('week')}, ` : '';
+    const daysString = days > 1 ? `${days} ${i18n.t('days')} ${i18n.t('and')} ` : weeks === 1 ? `${days} ${i18n.t('day')} ${i18n.t('and')} ` : '';
+    const hoursString = hours > 1 ? `${hours} ${i18n.t('hours')}.` : weeks === 1 ? `${hours} ${i18n.t('hour')}.` : '';
+
+    return `${weeksString}${daysString}${hoursString}`;
 }

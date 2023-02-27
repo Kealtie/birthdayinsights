@@ -10,6 +10,11 @@
         <section>
             <birthday-facts />
         </section>
+
+        <section>
+            <h2>De grootste hit op deze dag was...</h2>
+            <p></p>
+        </section>
     </main>
 </template>
 
